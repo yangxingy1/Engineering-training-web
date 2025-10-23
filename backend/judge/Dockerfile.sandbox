@@ -1,0 +1,21 @@
+# backend/judge/Dockerfile.sandbox
+
+# 使用一个非常小的官方 Python 镜像
+FROM python:3.9-slim
+
+# 在容器内创建一个工作目录 /sandbox
+WORKDIR /sandbox
+
+# 创建一个没有特权的普通用户 `sandboxuser`
+# -r: 创建系统用户, -u: 指定用户ID, -s /bin/false: 禁止该用户登录 shell
+RUN useradd --no-create-home -r -u 1000 -s /bin/false sandboxuser
+
+# 将工作目录的所有权交给这个新用户
+RUN chown -R sandboxuser:sandboxuser /sandbox
+
+# 切换到这个非 root 用户
+USER sandboxuser
+
+# 容器启动时默认执行的命令
+# 它会运行我们稍后传入的 submission.py 文件
+CMD ["python", "submission.py"]

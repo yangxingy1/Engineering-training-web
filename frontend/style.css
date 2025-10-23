@@ -1,0 +1,163 @@
+/* 粒子背景占满全屏 */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+/* 全局样式 */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+/* 容器统一覆盖在粒子上方 */
+.container, h1, h2, h3, h5, p, form, .btn-primary {
+    position: relative;
+    z-index: 1;
+}
+
+/* 标题效果 */
+h1, h2, h3, h5 {
+    color: #ffffff;
+}
+
+
+/* 右侧主讲人信息侧边栏 */
+.speaker-info-sidebar {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ffff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.speaker-info-sidebar img {
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* 核心概念文字框 */
+.concept-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%; /* 让同一行的框等高 */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.concept-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* 单个项目截图 */
+.project-single-image {
+    max-width: 80%; /* 放大图片，但不要超过其容器宽度 */
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #00ffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-single-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #00ffff;
+}
+
+/* 代码提交框样式 */
+/* --- 统一的深色输入框样式 --- */
+.dark-input {
+    background-color: rgba(10, 25, 47, 0.8); /* 深色背景 */
+    color: #c9d1d9;                          /* 浅色文字 */
+    border: 1px solid #00ffff;               /* 青色边框 */
+}
+
+.dark-input::placeholder {
+    color: #8b949e; /* 占位符文字颜色 */
+}
+
+/* 当用户点击输入框时，Bootstrap的默认样式会覆盖掉我们的深色背景，使其变白 */
+.dark-input:focus {
+    /* 这里我们不需要写任何东西，Bootstrap会处理好变白的效果 */
+    /* 我们也可以在这里微调，比如改变聚焦时的边框颜色 */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    border-color: #00ffff;
+}
+
+
+/* --- 代码提交框现在只负责定义字体 --- */
+.code-area {
+    font-family: 'Courier New', Courier, monospace; /* 使用等宽字体 */
+}
+
+/* --- 沿用样式 --- */
+
+/* 链接列表 */
+.list-group-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #ffffff;
+}
+.list-group-item a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background: linear-gradient(45deg, #00ffff, #00aaff);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px #00ffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ffff;
+}
+/* --- 行内结果框样式 --- */
+.judge-result-inline {
+    background-color: rgba(10, 25, 47, 0.8);
+    border: 1px solid #00ffff;
+    border-radius: 10px;
+    padding: 0.65rem 1rem; /* 调整内边距，使其更紧凑 */
+    height: 100%;         /* 高度与父容器一致 */
+    min-height: 52px;     /* 与按钮高度大致匹配 */
+    display: flex;        /* 使用 flexbox 来垂直居中内容 */
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* <pre> 标签现在是 flexbox 的子元素，需要一些调整 */
+.judge-result-inline pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem; /* 稍微缩小字体以适应新框 */
+    line-height: 1.4;  /* 调整行高 */
+}
+
+/* --- 结果字体颜色样式 (保持不变) --- */
+.result-accept {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.result-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.result-warning {
+    color: #ffc107;
+    font-weight: bold;
+}

@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String , DateTime, ForeignKey, UniqueCon
 from .database import Base
 import datetime
 
+
 class Visitor(Base):
     __tablename__ = 'visitors'
 
@@ -11,4 +12,4 @@ class Visitor(Base):
     ip_address = Column(String)
     user_agent = Column(String)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
-
+    judge_status = Column(String(50), nullable=True, default=None)

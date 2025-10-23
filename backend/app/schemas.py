@@ -11,3 +11,15 @@ class Visitor(VisitorCreate):
 
     class Config:
         from_attributes = True
+
+
+class CodeSubmission(BaseModel):
+    nickname: str
+    email: EmailStr
+    code: str
+
+
+class JudgeResult(BaseModel):
+    status: str
+    message: str
+

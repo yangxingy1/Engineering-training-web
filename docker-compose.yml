@@ -19,6 +19,7 @@ services:
     volumes:
       - ./backend/data:/app/data
       - ./backend/logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
 
   # 前端服务
   frontend:
