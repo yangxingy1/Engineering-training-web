@@ -17,9 +17,10 @@ services:
     # 将主机(服务器)的 ./backend/data 目录映射到容器的 /app/data 目录
     # 这样数据库文件就会保存在服务器上，即使容器被删除，数据也不会丢失
     volumes:
-      - ./backend/data:/app/data
-      - ./backend/logs:/app/logs
+      - ${PWD}/backend/data:/app/data
+      - ${PWD}/backend/logs:/app/logs
       - /var/run/docker.sock:/var/run/docker.sock
+      - ${PWD}/backend/judge_tmp:/app/judge_tmp
 
   # 前端服务
   frontend:
