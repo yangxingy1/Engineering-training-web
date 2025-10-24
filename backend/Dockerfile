@@ -9,12 +9,15 @@ WORKDIR /app
 # 3. 将 requirements.txt 文件复制到工作目录中
 COPY requirements.txt .
 
+# 添加模块搜索目录
+ENV PYTHONPATH=/app
+
 # 4. 安装所有 Python 依赖
 # --no-cache-dir 选项可以减小镜像体积
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 5. 将你的 app 文件夹复制到工作目录的 app 文件夹中
-COPY ./app /app/app
+COPY . .
 
 # 6. 暴露容器的 8000 端口，以便其他容器可以访问它
 EXPOSE 8000

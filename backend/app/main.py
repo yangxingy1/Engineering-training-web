@@ -9,8 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger
 from judge.run_sandbox import judge_code
 
-from . import crud, models, schemas
-from .database import engine, get_db
+from app import crud, models, schemas
+from app.database import engine, get_db
 
 # --- 1. Loguru 配置 ---
 # 确保日志文件目录存在
