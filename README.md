@@ -202,16 +202,22 @@ gc_training/
 
 * **查询数据库** 
 
-  ​	先进入容器内部,然后执行:
+  先进入backend目录，然后执行
 
   ```cmd
   sqlite3 data/visitors.db
   ```
 
-  ​	提示符变成 **sqlite>** 后,写入SQL语句如:
+  提示符变成 **sqlite>** 后,写入SQL语句如:
 
   ```sql
-  SELECT * FROM visitors WHERE visitors.judge_status = 'Accept'
+  SELECT visitors.nickname , visitors.email FROM visitors WHERE visitors.judge_status = 'Accept';
   ```
 
-  
+
+​	退出时使用指令:
+
+```sql
+.quit;
+```
+
